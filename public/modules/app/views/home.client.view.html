@@ -1,0 +1,67 @@
+<div id="page-content-wrapper">
+
+	<section class="content-block" id="search-box" ng-if="!uploadedPicture">
+		<div class="container">
+			<div class="step-heading">
+				<div class="heading-icon heading-icon-box-white-filled heading-icon-box"><span class="glyphicon glyphicon-picture"></span></div>
+				<h3 class="text-center step-heading-name">Upload Picture</h3>
+				<div class="step-heading-border"></div>
+			</div>
+			<form enctype="multipart/form-data" class="text-center">
+				<input type="file" ng-model-instant id="file" name="uploadFile" onchange="angular.element(this).scope().fileUpload.setFiles(this)" class="upload-input"/>
+				<input type="submit" name="submit" id="submit" class="btn btn-md btn-material-blue" ng-click="fileUpload.uploadFile()" value="Submit">
+			</form>
+		</div>
+	</section>
+
+	<section class="content-block search-results" ng-if="uploadedPicture">
+		<div class="container">
+			<div class="step-heading">
+				<div class="heading-icon heading-icon-box-white-filled heading-icon-box"><span class="glyphicon glyphicon-ok"></span></div>
+				<h3 class="text-center step-heading-name">Results</h3>
+				<div class="step-heading-border"></div>
+			</div>
+			<div class="col-md-12">
+				<div ng-if="image">
+					<h3 class="text-center step-heading-name">Faces we've found in the picture</h3>
+					<div class="result-picture" id="picture-output"><img ng-src="{{ image.lFile }}"></div>
+				</div>
+				<div ng-if="!image">
+					<h3 class="text-center step-heading-name">Sorry, but we weren't able to find faces in this picture!</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-block search-user-results" ng-if="uploadedPicture && getResults">
+		<div class="container">
+			<div class="step-heading">
+				<div class="heading-icon heading-icon-box-white-filled heading-icon-box"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+				<h3 class="text-center step-heading-name">Enjoy</h3>
+				<div class="step-heading-border"></div>
+			</div>
+			<div class="col-md-12">
+				<div ng-if="foundUsers.length > 0">
+					<h3 class="text-center step-heading-name">People we've found in the picture</h3>
+					<div class="users-result">
+						<div ng-repeat="user in foundUsers" class="user-box">
+							<a href="{{ user.link }}" target="_blank">
+								<div class="user-image"><img ng-src="{{ user.picture }}"></div>
+								<div class="user-info"><h2>{{ user.displayName }}</h2></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div ng-if="foundUsers.length === 0">
+					<h3 class="text-center step-heading-name">Sorry, but we weren't able to find anyone from this picture!</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-block search-user-results" ng-if="uploadedPicture && (getResults || !image)">
+		<div class="container">
+			<h4 class="text-center"><span class="search-link" ng-click="uploadAgain()">Upload another Picture?</span></h4>
+		</div>
+	</section>
+</div>

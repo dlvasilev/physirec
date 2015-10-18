@@ -1,0 +1,25 @@
+<nav id="nav-main">
+	<div class="navbar navbar-fixed-top" style="padding-top: 0px; background-color: #333; border-bottom: 1px solid #00aff0;">
+        <div class="navbar-header">
+        	<ul class="nav navbar-nav navbar-left">
+                <li>
+                	<a href="/" class="navbar-brand">Physirec</a>
+                </li>
+                <li>
+	                <a href="" class="btn btn-fab btn-primary btn-show-sidebar" id="menu-toggle">
+	                	<span class="glyphicon glyphicon-th-large"></span>
+	                </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right" id="header-navbar-user">
+			<li>
+				<a href="{{ authentication.user.link }}" class="header-user-link">
+					<h3>{{ authentication.user.displayName }}</h3>
+					<span class="header-user-image"><img src="{{ authentication.user.picture }}"></span>
+				</a>
+			</li>
+			<li><a href="/auth/signout" class="btn btn-nav" style="margin-right: 15px; background: #333 !important; color: #FFF;">Logout</a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+
+		<!-- General META -->
+		<meta charset="utf-8">
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<base href="http://localhost:3000">
+
+		<!-- Semantic META -->
+		<meta name="keywords" content="{{keywords}}">
+		<meta name="description" content="{{description}}">
+
+		<!-- Facebook META -->
+		<meta property="fb:app_id" content="{{facebookAppId}}">
+		<meta property="og:site_name" content="{{title}}">
+		<meta property="og:title" content="{{title}}">
+		<meta property="og:description" content="{{description}}">
+		<meta property="og:url" content="{{url}}">
+		<meta property="og:image" content="/img/brand/logo.png">
+		<meta property="og:type" content="website">
+
+		<!-- Fav Icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+		<!--Application CSS Files-->
+		{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}" type="text/css">
+		{% endfor %}
+
+		<!-- HTML5 Shim -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body id="page-top" class="index">
+		<!--Header-->
+		<header>
+			<nav id="nav-main">
+				<div class="navbar navbar-fixed-top">
+		        	<div class="container">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-main-site">
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a href="/" class="navbar-brand">Physirec</a>
+		                </div>
+		                <div class="collapse navbar-collapse" id="nav-main-site">
+		                    <ul class="nav navbar-nav navbar-right">
+		                    	{% if !user %}
+		                        	<li><a href="/auth/facebook" class="btn btn-nav btn-facebook-login btn-primary">Login</a></li>
+		                        {% endif %}
+		                        {% if user %}
+		                        	<li>
+		                        		<a href="{{ user.link }}" class="header-user-link header-user-link-intro">
+		                        			<h3>{{ user.displayName }}</h3>
+		                        			<span class="header-user-image"><img src="{{ user.picture }}"></span>
+		                        		</a>
+		                        	</li>
+		                        	<li><a href="/auth/signout" class="btn btn-nav">Logout</a></li>
+		                        {% endif %}
+		                    </ul>
+		                </div>
+		            </div>
+		        </div>
+		    </nav>
+		</header>
+
+		<!--Page Content-->
+		<section class="heading-group" id="heading-intro">
+			<h1>Find People who are in <br />Your Pictures. Fast.</h1>
+			<h2>Web Application for searching Facebook users.</h2>
+			<div class="text-center">
+				{% if user %}
+				<a href="/app/#!/home" class="btn btn-lg btn-primary btn-use">Use it Now</a>
+				{% endif %}
+				{% if !user %}
+				<a href="/auth/facebook" class="btn btn-lg btn-primary btn-use">Try It Now</a>
+				{% endif %}
+				<h3>оr see</h3>
+				<h3><a href="#" id="see-why">Why It's Awesome!</a></h3>
+			</div>
+		</section>
+		
+		<section class="content-block content-block-blue" id="why-its-awesome">
+			<div class="container">
+				<h2 class="text-center">It's Awesome</h2>
+				<div class="col-md-6 heading-box">
+					<div class="col-md-3">
+						<div class="heading-icon heading-icon-white heading-icon-circle"><span class="glyphicon glyphicon-ok"></span></div>
+					</div>
+					<div class="col-md-9">
+						<h2>Easy</h2>
+						<p>With just several clicks, you can find old friends's Facebook Profiles or even New ones!</p>
+					</div>
+				</div>
+				<div class="col-md-6 heading-box">
+					<div class="col-md-3">
+						<div class="heading-icon heading-icon-white heading-icon-circle"><span class="glyphicon glyphicon-signal"></span></div>
+					</div>
+					<div class="col-md-9">
+						<h2>Accessible</h2>
+						<p>You can access our Application from your PC, Mac, Phone or Tablet. All you need is just a Network connection!</p>
+					</div>
+				</div>
+				<div class="col-md-6 heading-box">
+					<div class="col-md-3">
+						<div class="heading-icon heading-icon-white heading-icon-circle"><span class="glyphicon glyphicon-search"></span></div>
+					</div>
+					<div class="col-md-9">
+						<h2>Fast</h2>
+						<p>Search through our Database of Facebook users with the speed of insanity.</p>
+					</div>
+				</div>
+				<div class="col-md-6 heading-box">
+					<div class="col-md-3">
+						<div class="heading-icon heading-icon-white heading-icon-circle"><span class="glyphicon glyphicon-user"></span></div>
+					</div>
+					<div class="col-md-9">
+						<h2>People</h2>
+						<p>With every single second our Database is growing!</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-block content-block-white"  id="get-started">
+			<div class="container">
+				<h2 class="text-center">Get Started</h2>
+				<div class="col-md-3 heading-box">
+					<div class="heading-icon heading-icon-blue heading-icon-box-white"><span class="glyphicon glyphicon-globe"></span></div>
+					<h3 class="text-center">Login with Facebook</h3>
+				</div>
+				<div class="col-md-3 heading-box">
+					<div class="heading-icon heading-icon-blue heading-icon-box-white"><span class="glyphicon glyphicon-picture"></span></div>
+					<h3 class="text-center">Upload Picture</h3>
+				</div>
+				<div class="col-md-3 heading-box">
+					<div class="heading-icon heading-icon-blue heading-icon-box-white"><span class="glyphicon glyphicon-ok"></span></div>
+					<h3 class="text-center">Get results</h3>
+				</div>
+				<div class="col-md-3 heading-box">
+					<div class="heading-icon heading-icon-blue heading-icon-box-white"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+					<h3 class="text-center">Enjoy</h3>
+				</div>
+			</div>
+			<div class="dashed-border"></div>
+		</section>
+
+		<!--Footer-->
+		<footer>
+			<section class="text-center">
+				<div>© 2015 Physirec. All rights reserved!</div>
+			</section>
+		</footer>
+
+
+		<!--Embedding The User Object-->
+		<script type="text/javascript">
+			var user = {{ user | json | safe }};
+		</script>
+
+		<!--Application JavaScript Files-->
+		{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
+		{% endfor %}
+		<script type="text/javascript" src="/modules/site/scripts/site.js"></script>
+		
+		<script type="text/javascript">
+	        $(document).ready(function() {
+	            $.material.init();
+	        });
+	        $("#menu-toggle").click(function(e) {
+		        e.preventDefault();
+		        $("#wrapper").toggleClass("toggled");
+		    });
+	    </script>
+	</body>
+</html>

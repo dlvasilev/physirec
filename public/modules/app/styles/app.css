@@ -1,0 +1,142 @@
+body {
+	color: rgba(255,255,255,0.84);
+	background: url('../../../images/bg-app.png') no-repeat fixed bottom right;
+	background-color: #6cc7fe;
+}
+
+a.navbar-brand {
+	background: url('../../../images/logo-small-blue.png') no-repeat left center;
+	color: #FFF;
+	margin-left: 20px;
+}
+
+.step-heading {
+	min-height: 150px;
+}
+
+.step-heading-border {
+  height: 1px;
+  border: 3px dashed #FFF;
+  margin-top: -105px;
+  width: 100%;
+  z-index: 1;
+}
+
+.step-heading-name {
+	color: #333;
+}
+
+.heading-icon img {
+	margin-top: 20px;
+}
+
+.upload-input {
+	margin: 50px auto;
+	display: block;
+	padding: 20px; 
+	border-radius: 10px;
+	background-color: #FFF;
+	color: #333;
+}
+
+.search-results h2 {
+	margin-top: 30px;
+}
+
+.result-picture {
+	padding: 20px;
+	border-radius: 10px;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.result-picture img {
+	max-width: 1000px;
+	max-height: 600px;
+	border-radius: 10px;
+}
+
+@media (max-width: 995px) {
+	.result-picture img {
+		max-width: 100%;
+	}
+}
+
+.user-box {
+	width: 250px;
+	vertical-align: top;
+	display: inline-block;
+	margin: 30px 10px 10px 10px;
+	text-align: center;
+}
+
+.user-box a {
+	display: block;
+	width: 250px;
+}
+
+.user-box a:hover, .user-box a:active {
+	text-decoration: none;
+}
+
+.user-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	display: block;
+	border: 3px solid #00aff0;
+	text-align: center;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.user-image img {
+	width: 150px;
+	height: 150px;
+}
+
+.user-info {
+	color: #333;
+	display: block;
+	text-align: center;
+}
+
+.search-link {
+	cursor: pointer;
+}
+
+
+.search-history-box {
+	margin-top: 20px;
+	text-align: center;
+	background: #333;
+	border-bottom: 5px solid #00aff0;
+}
+
+.search-history-image-box {
+	height: 300px;
+	border-right: 5px solid #00aff0;
+	border-left: 5px solid #00aff0;
+	background-color: #FFF;
+}
+
+.search-history-image-box table, .search-history-image-box td {
+	height: 300px;
+	width: 465px;
+}
+
+.search-history-image {
+	text-align: center;
+	max-width: 465px;
+	max-height: 300px;
+}
+
+@media (max-width: 500px) {
+	.search-history-image {
+		max-width: 100%;
+	}
+	.search-history-image-box table, .search-history-image-box td {
+		width: 100%;
+	}
+}

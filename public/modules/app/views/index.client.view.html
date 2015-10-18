@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+
+		<!-- General META -->
+		<meta charset="utf-8">
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<base href="http://localhost:3000">
+
+		<!-- Semantic META -->
+		<meta name="keywords" content="{{keywords}}">
+		<meta name="description" content="{{description}}">
+
+		<!-- Facebook META -->
+		<meta property="fb:app_id" content="{{facebookAppId}}">
+		<meta property="og:site_name" content="{{title}}">
+		<meta property="og:title" content="{{title}}">
+		<meta property="og:description" content="{{description}}">
+		<meta property="og:url" content="{{url}}">
+		<meta property="og:image" content="/img/brand/logo.png">
+		<meta property="og:type" content="website">
+
+		<!-- Fav Icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+		<!--Application CSS Files-->
+		{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}" type="text/css">
+		{% endfor %}
+		<link rel="stylesheet" href="/modules/app/styles/app.css" type="text/css">
+
+		<!-- HTML5 Shim -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body class="ng-cloak">
+
+		<div data-ng-controller="CoreController">
+		
+			<!-- Header -->
+			<header data-ng-include="'/modules/app/views/templates/header.client.view.html'"></header>
+			<!-- /Header -->
+
+			<section id="wrapper">
+
+				<!-- Sidebar -->
+				<div id="sidebar-wrapper" data-ng-include="'/modules/app/views/templates/sidebar.client.view.html'"></div>
+			    <!-- /#sidebar-wrapper -->
+
+			    <!-- Content -->
+				<section data-ui-view></section>
+			    <!-- /Content -->
+
+				<!-- Footer -->
+				<section data-ng-include="'/modules/app/views/templates/footer.client.view.html'"></section>
+				<!-- /Footer -->
+
+			</section>
+		</div>
+	
+		<!--Embedding The User Object-->
+		<script type="text/javascript">
+			var user = {{ user | json | safe }};
+		</script>
+
+		<!--Application JavaScript Files-->
+		{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
+		{% endfor %}
+		
+		<script type="text/javascript" src="/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="/lib/angular-cookies/angular-cookies.js"></script>
+		<script type="text/javascript" src="/lib/angular-animate/angular-animate.js"></script>
+		<script type="text/javascript" src="/lib/angular-touch/angular-touch.js"></script>
+		<script type="text/javascript" src="/lib/angular-sanitize/angular-sanitize.js"></script>
+		<script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+		<script type="text/javascript" src="/lib/angular-ui-utils/ui-utils.js"></script>
+		<script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+		<script type="text/javascript" src="/modules/app/config.js"></script>
+		<script type="text/javascript" src="/modules/app/application.js"></script>
+		<script type="text/javascript" src="/modules/app/services/authentication.client.service.js"></script>
+		<script type="text/javascript" src="/modules/app/controllers/core.client.controller.js"></script>
+		<script type="text/javascript" src="/modules/app/config/core.client.routes.js"></script>
+		<!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
+		
+		
+		<script type="text/javascript">
+	        $(document).ready(function() {
+	            $.material.init();
+	        });
+
+	        $("#menu-toggle").click(function(e) {
+		        e.preventDefault();
+		        $("#wrapper").toggleClass("toggled");
+		    });
+	    </script>
+	</body>
+</html>

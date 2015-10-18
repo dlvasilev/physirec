@@ -1,0 +1,32 @@
+<div id="page-content-wrapper">
+	<section class="content-block">
+		<div class="container" ng-init="getHistory()">
+			<div class="step-heading">
+				<div class="heading-icon heading-icon-box-white-filled heading-icon-box"><img src="/images/logo-small-blue.png"></div>
+				<h3 class="text-center step-heading-name">My Physirec</h3>
+				<div class="step-heading-border"></div>
+			</div>
+			<div class="search-history">
+				<div class="search-history-box col-md-12" ng-repeat="search in searches">
+					<div class="row">
+						<div class="col-md-5" style="padding: 0;">
+							<div class="search-history-image-box">
+								<table><tr><td><img class="search-history-image" ng-src="{{ search.image }}"></td></tr></table>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="search-history-users">
+								<div ng-repeat="user in search.users" class="user-box">
+									<a href="{{ user.link }}" target="_blank">
+										<div class="user-image"><img ng-src="{{ user.picture }}"></div>
+										<div class="user-info"><h2 style="color: #00aff0;">{{ user.displayName }}</h2></div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
